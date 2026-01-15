@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>个人简易记账系统</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>个人简易记账系统</h1>
+
+        <!-- 新增收支表单 -->
+        <div class="form-section">
+            <h2>添加收支记录</h2>
+            <div class="form-group">
+                <label for="record-type">类型</label>
+                <select id="record-type">
+                    <option value="收入">收入</option>
+                    <option value="支出">支出</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">金额（元）</label>
+                <input type="number" id="amount" step="0.01" min="0.01" placeholder="请输入金额">
+            </div>
+            <div class="form-group">
+                <label for="description">备注</label>
+                <textarea id="description" rows="2" placeholder="比如：早餐、工资、房租等"></textarea>
+            </div>
+            <button id="submit-btn">提交记录</button>
+        </div>
+
+        <!-- 收支统计 -->
+        <div class="summary-section">
+            <div class="summary-item">
+                <h3>总收入</h3>
+                <div class="value income" id="total-income">0.00</div>
+            </div>
+            <div class="summary-item">
+                <h3>总支出</h3>
+                <div class="value expense" id="total-expense">0.00</div>
+            </div>
+            <div class="summary-item">
+                <h3>账户余额</h3>
+                <div class="value balance" id="balance">0.00</div>
+            </div>
+        </div>
+
+        <!-- 收支记录列表 -->
+        <h2>收支记录</h2>
+        <table class="records-table">
+            <thead>
+                <tr>
+                    <th>时间</th>
+                    <th>类型</th>
+                    <th>金额（元）</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody id="records-list">
+                <tr class="empty-tip">
+                    <td colspan="4">暂无收支记录</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script src="/static/js/main.js"></script>
+</body>
+</html>
